@@ -198,7 +198,7 @@ bot.command("report", async (ctx) => {
     const messageUrl = messageText[2];
 
     await reportChannel(channelUrl, messageUrl, ctx);
-});*/
+});/
 
 async function checkMembership(userId) {
     try {
