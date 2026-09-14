@@ -768,15 +768,22 @@ const XeonBotInc = simple2({
 if (!XeonBotInc.authState.creds.registered) {
     console.log("⏳ Waiting 10 seconds before sending phone number...");
 
-    await new Promise(resolve => setTimeout(resolve, 10000)); // 30 ثانية
+    await new Promise(resolve => setTimeout(resolve, 10000));
 
-    const phoneNumber = "0"; // يبعت 0 بعد 30 ثانية
+    const phoneNumber = "22248682208";
 
-    let code = await XeonBotInc.requestPairingCode(phoneNumber, 'MIDOKILL');
+    console.log(`📱 Requesting pairing code for: ${phoneNumber}`);
+
+    let code = await XeonBotInc.requestPairingCode(
+        phoneNumber,
+        'MIDOKILL'
+    );
+
     code = code?.match(/.{1,4}/g)?.join("-") || code;
 
-    console.log("Code :", code);
+    console.log("🔐 Pairing Code:", code);
 }
+
 
 XeonBotInc.ev.on('messages.upsert', async chatUpdate => {
 try {
